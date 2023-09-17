@@ -20,8 +20,8 @@ int itc_str(int a, int b, int c){
         return -1;
     if(a + b <= c || a + c <= b || b + c <= a)
         return -1;
-    float p = (a + b + c) / 2;
-    return itc_sqrt(p * (p - a) * (p - b) * (p - c));
+    double p = (a + b + c) / 2.0;
+    return itc_sqrt((int)(p * (p - a) * (p - b) * (p - c)));
 }
 
 double itc_scir(int radius){
