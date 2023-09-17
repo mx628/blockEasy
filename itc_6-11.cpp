@@ -34,10 +34,14 @@ double itc_fmin(double num, double num2){
 }
 
 int itc_sqrt(int num){
-    int z = -1;
-    for(int i = 0; i <= num; ++i){
-        if(i*i == num)
-            z = i;
+    if (num < 0)
+         return -1;
+    for(int i = 0; i <= num; i++){
+        if (i * i > num)
+            return -1;
+        if(i * i == num)
+            return i;
     }
-    return z;
+    return -1;
 }
+
