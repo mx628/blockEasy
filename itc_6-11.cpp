@@ -36,11 +36,11 @@ double itc_fmin(double num, double num2){
 int itc_sqrt(int num){
     if (num < 0)
          return -1;
-    for(int i = 0; i <= num; i++){
+    for(long long i = 0; i <= num; i++){
         if (i * i > num)
             return -1;
         if(i * i == num)
-            return i;
+            return (int)i;
     }
     return -1;
 }
