@@ -1,35 +1,34 @@
-# blockEasy
-домашнее задание
-
-#include <iostream>
-#include <string>
-using namespace std;
-
-
-string itc_hello_str(string name){
-    return "Hello, " + name + '\n';
+#include<SoftwareSerial.h>
+void setup() {
+  Serial.begin(9600);
+  for(int i = 0; i<10; i++)
+  {
+    pinMode(1+i, OUTPUT);
+  }
 }
 
-long long itc_len(string str){
-    int i = 0;
-    while(str[i] != '\0')
-        ++i;
-    return i;
-}
-
-int main()
-{
-    cout << itc_len("Alegqwkf");
-    return 0;
-}
-
-/*long long itc_bin_num(long long number){
-    long long bin = 0;
-    long long n = 1;
-    while(number > 0){
-        if(number > itc_pow(2, n) && number - itc_pow(2, n) )
-        number/=10;
+String itc_bin_num(long long number){
+    long long binare = 0, n = 1;
+    while (number > 0){
+        binare += (number % 2) * n;
+        n*=10;
+        number/=2;
     }
+    String str;
+    int i = 0;
+    while(number > 0){
+        str[i] = number % 10;
+        i++;
+      }
+}
+
+void loop() {
+  if(Serial.available()>0)
+  {
+    int a = Serial.parseInt();
+    
+  }
+  
 }
 
 long long itc_pow(long long num, int step){
